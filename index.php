@@ -5,7 +5,7 @@ $user = '___________'; // แก้ไขให้ตรงกับค่าท
 $db   = '___________'; // แก้ไขให้ตรงกับค่าที่อยู่ใน Docker Compose หรือ .env
 
 // 2. กฎเหล็กด้านความปลอดภัย: อ่านรหัสผ่านจาก Docker Secret [4, 7]
-$secret_path = '/run/secrets/db_root_pass';
+$secret_path = '/run/secrets/db_pass';
 $pass = trim(file_get_contents($secret_path));
 
 // 3. เริ่มการเชื่อมต่อด้วย mysqli [8]
@@ -20,16 +20,16 @@ if ($conn->connect_error) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Project Tracker</title>
+    <title>Student Shift Scheduler</title>
     <style>
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #f2f2f2; }
+        table { width: 80%; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #7e7e7e; text-align: center; }
+        th { background-color: #fff5e4; }
         .status-done { color: green; font-weight: bold; }
     </style>
 </head>
 <body>
-    <h1>📋 ระบบติดตามสถานะโครงงานนักศึกษา</h1>
+    <h1>📋 ระบบจัดการตารางงานนักศึกษา (Student Shift Scheduler)</h1>
     <p>Connected to <strong>MariaDB</strong> successfully!</p>
 
     <table>
@@ -38,7 +38,7 @@ if ($conn->connect_error) {
             <th>Student ID</th>
             <th>Name</th>
             <th>Project Title</th>
-            <th>Status</th>
+            <th>Shift Status</th>
         </tr>
         <?php
         // 4. ดึงข้อมูลจากตาราง students มาแสดงผล [2]
@@ -52,7 +52,7 @@ if ($conn->connect_error) {
                         <td>" . $row["student_id"] . "</td>
                         <td>" . $row["full_name"] . "</td>
                         <td>" . $row["project_name"] . "</td>
-                        <td class='status-done'>" . $row["status"] . "</td>
+                        <td class='status-done'>" . $row["shift_status"] . "</td>
                       </tr>";
             }
         } else {

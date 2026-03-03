@@ -6,16 +6,16 @@ CREATE TABLE IF NOT EXISTS students (
     username VARCHAR(100) NOT NULL,
     email VARCHAR(255) NOT NULL,
     project_name VARCHAR(255),
-    status VARCHAR(50) DEFAULT 'Pending'
+    shift_status VARCHAR(50) DEFAULT 'NA'
 );
 
 -- 2. เพิ่มข้อมูลจำลองโดยเน้นข้อมูลนักศึกษา [2, 3]
 -- แถวแรก: ข้อมูลของผู้สอบ (นักศึกษาต้องเปลี่ยนเป็นข้อมูลจริงของตนเอง)
-INSERT INTO students (student_id, full_name, username, email, project_name, status) VALUES 
-('ใส่รหัสนศ.ของคุณ', 'ใส่ชื่อ-นามสกุลของคุณ', 'ใส่ชื่อบัญชีของคุณ', 'ใส่ชื่ออีเมลของคุณ', 'Web Administration', 'Purposal');
+INSERT INTO students (student_id, full_name, username, email, project_name, shift_status) VALUES 
+('ใส่รหัสนศ.ของคุณ', 'ใส่ชื่อ-นามสกุลของคุณ', 'ใส่ชื่อบัญชีของคุณ', 'ใส่ชื่ออีเมลของคุณ', 'Web Administration', 'Morning Shift');
 
 -- ข้อมูลจำลองอื่นๆ เพื่อความสวยงาม
-INSERT INTO students (student_id, full_name, username, email, project_name, status) VALUES 
-('1640700001', 'Somsak Rakdee', 'somsak.r', 'somsak@example.com', 'Database Design', 'Submitted'),
-('1640700002', 'Wichai Meesuk', 'wichai.m', 'wichai@example.com', 'Network Security', 'Approved'),
+INSERT INTO students (student_id, full_name, username, email, project_name, shift_status) VALUES 
+('1640700001', 'Somsak Rakdee', 'somsak.r', 'somsak@example.com', 'Database Design', 'Afternoon Shift'),
+('1640700002', 'Wichai Meesuk', 'wichai.m', 'wichai@example.com', 'Network Security', 'Night Shift'),
 ('1640700003', 'Jane Watson', 'jane.w', 'jane@example.com', 'Cloud Computing', 'Rejected');
